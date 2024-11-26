@@ -1,6 +1,5 @@
 "use client";
 import { supabase } from '../../../utils/supabase/client';
-import toast from "react-hot-toast";
 import { getUser } from "../../../utils/supabase/server";
 import { useEffect } from 'react';
 

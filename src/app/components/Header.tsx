@@ -1,6 +1,5 @@
 import { getUser } from "../../../utils/supabase/server";
 import Link from "next/link";
-import { cookies } from 'next/headers'
 import LoginButton from "../components/LoginButton";
 import SignOutButton from "../components/SignOutButton";
 import UserAuthComponent from "../api/addUser";
@@ -9,7 +8,6 @@ import UserAuthComponent from "../api/addUser";
 
 
 export async function Header() {
-  const cookieStore = await cookies()
   const user = await getUser();
   return (
     <header className="bg-zinc-900 h-16 flex items-center w-full absolute lg:justify-center">

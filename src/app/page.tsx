@@ -1,4 +1,3 @@
-import { cookies } from 'next/headers'
 import BannerProfile from '../app/components/BannerProfile';
 import AddContent from '../app/components/AddContent';
 import PostContent from '../app/components/PostContent';

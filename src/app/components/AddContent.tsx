@@ -31,7 +31,7 @@ const addPost = async (content: string) => {
       const userId = userData.id; // Get the ID from the user's record
 
       // Step 2: Insert the post with user_id set to the fetched user ID
-      const { data: postData, error: postError } = await supabase
+      const { error: postError } = await supabase
         .from('posts')
         .insert([{ user_id: userId, content }])
         .single(); // Use .single() to get a single object
@@ -46,7 +46,7 @@ const addPost = async (content: string) => {
       toast.error("Please log in to add a new post");
     }
   } catch (error) {
-    // console.error("Error adding post:", error);
+    console.error("Error adding post:", error);
     toast.error("Error adding post");
   } finally {
     setLoading(false);
