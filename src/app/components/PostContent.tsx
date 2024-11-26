@@ -95,10 +95,10 @@ export default function PostContent() {
       toast.error("Error fetching comments");
       
     } else {
-      const commentsWithUserData = data.map((comment: Comment) => ({
+      const commentsWithUserData = data.map((comment) => ({
         ...comment,
-        username: comment.username || 'Anonymous',
-        avatar_url: comment.avatar_url || '/default_profile_icon.png',
+        username: comment.users?.username || 'Anonymous',
+        avatar_url: comment.users?.avatar_url || '/default_profile_icon.png',
       }));
 
       setComments((prev) => ({ ...prev, [postId]: commentsWithUserData }));
