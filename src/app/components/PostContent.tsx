@@ -16,7 +16,7 @@ interface Post {
 }
 
 interface Comment {
-  users: any;
+  users: string;
   id: string;
   post_id: string;
   user_id: string;
@@ -66,7 +66,9 @@ export default function PostContent() {
           }));
 
           setPosts(postsWithUserData);
-          data && data.forEach((post: Post) => fetchComments(post.id));
+          if (data) {
+            data.forEach((post: Post) => fetchComments(post.id));
+          }
         }
       } catch (err) {
         setError('An unexpected error occurred');
@@ -95,8 +97,8 @@ export default function PostContent() {
     } else {
       const commentsWithUserData = data.map((comment: Comment) => ({
         ...comment,
-        username: comment.users?.username || 'Anonymous',
-        avatar_url: comment.users?.avatar_url || '/default_profile_icon.png',
+        username: comment.username || 'Anonymous',
+        avatar_url: comment.avatar_url || '/default_profile_icon.png',
       }));
 
       setComments((prev) => ({ ...prev, [postId]: commentsWithUserData }));
