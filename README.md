@@ -1,36 +1,68 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+1. Overview of the Solution
+    -This project provides a solution for managing user-generated content. It focuses on the following:
 
-## Getting Started
+    #Storing content securely in a Supabase database.
+    #Allowing users to post content and interact with it via commenting.
 
-First, run the development server:
+2. Architecture
+    -The architecture is designed to separate backend and frontend concerns efficiently:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+    #Frontend: Built using Next.js with TypeScript. It handles UI interactions and makes API calls to interact with the backend.
+    #Backend: The content is stored in Supabase (a hosted PostgreSQL database) for easy integration with authentication and data management.
+    #User Authentication: Managed via Supabase, where users authenticate and are linked to their posts.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+3. Approach and Methodology
+    -The approach taken for this solution includes:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+    1. Data Management:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+    #Post content and comments are stored in the Supabase database.
+    Each post is linked to the user who created it, allowing for personalized content management.
+    
+    2. Frontend Handling:
 
-## Learn More
+    #React (Next.js) components manage the user interface, including forms for content creation and comment submission.
+    The UI is interactive and updates dynamically upon successful form submission (without a page refresh).
+    
+    3. State Management:
 
-To learn more about Next.js, take a look at the following resources:
+    #React's useState and useEffect hooks are used to manage the application state, such as loading states, posts, and comments.
+    
+    4. Error Handling and Feedback:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+    #Toast notifications are used to inform users about successful actions or errors (e.g., when posting content or adding comments).
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+    <!-- Instructions to Run the Application Locally -->
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Follow these steps to run the application locally:
+
+1. Clone the Repository:
+
+    #Run the following command to clone the project:
+        git clone <your-repository-url>
+    
+2. Install Dependencies:
+
+    #Navigate to the project directory:
+        cd <project-directory>
+    
+    #Install the required dependencies:
+        npm install
+
+3. Configure Supabase:
+
+    #Create a .env.local file at the root of the project and add your Supabase credentials:
+    NEXT_PUBLIC_SUPABASE_URL=<your-supabase-url>
+    NEXT_PUBLIC_SUPABASE_ANON_KEY=<your-supabase-anon-key>
+
+4. Run the Development Server:
+
+    #Start the local development server:
+        npm run dev
+    #Open the application in your browser at http://localhost:3000.
+
+5. Login and Use:
+
+    #Use the authentication feature to log in and start creating posts and interacting with comments.
