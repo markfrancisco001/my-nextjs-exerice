@@ -9,7 +9,7 @@ export const loginAction = async (provider: Provider) => {
     const { data, error } = await (await getSupabaseAuth()).signInWithOAuth({
       provider,
       options: {
-        redirectTo: `https://my-nextjs-exerice.vercel.app/api/auth`,
+        redirectTo: `${process.env.NEXT_PUBLIC_SUPABASE_URL}/api/auth`,
         
       },
     });
