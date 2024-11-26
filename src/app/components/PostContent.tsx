@@ -16,6 +16,7 @@ interface Post {
 }
 
 interface Comment {
+  users: any;
   id: string;
   post_id: string;
   user_id: string;
@@ -48,7 +49,6 @@ export default function PostContent() {
 
         if (error) {
           setError('Failed to load posts');
-          // console.error('Error fetching posts:', error);
           toast.error("Error fetching posts");
         } else {
           // Get the current user data (including avatar_url)
@@ -89,14 +89,14 @@ export default function PostContent() {
       .eq('post_id', postId);
 
     if (error) {
-      // console.error('Error fetching comments:', error);
+     
       toast.error("Error fetching comments");
       
     } else {
-      const commentsWithUserData = data.map((comment: any) => ({
+      const commentsWithUserData = data.map((comment: Comment) => ({
         ...comment,
-        username: comment.users?.username || 'Anonymous', // Default to 'Anonymous' if no username
-        avatar_url: comment.users?.avatar_url || '/default_profile_icon.png', // Default avatar if none
+        username: comment.users?.username || 'Anonymous',
+        avatar_url: comment.users?.avatar_url || '/default_profile_icon.png',
       }));
 
       setComments((prev) => ({ ...prev, [postId]: commentsWithUserData }));

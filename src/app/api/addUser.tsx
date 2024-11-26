@@ -10,7 +10,7 @@ export async function insertOrUpdateUserInDatabase() {
     const user = await getUser();
     // toast.success(`Authenticated user: ${user?.user_metadata.user_name} (${user?.user_metadata.email})`);
     if (user) {
-        const { data, error } = await supabase
+        const { error } = await supabase
             .from('users')
             .upsert([{
                 email: user?.user_metadata?.email,
