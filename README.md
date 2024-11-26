@@ -7,7 +7,7 @@
 2. Architecture
     -The architecture is designed to separate backend and frontend concerns efficiently:
 
-    #Frontend: Built using Next.js with TypeScript. It handles UI interactions and makes API calls to interact with the backend.
+    #Frontend: Built using Next.js with TypeScript, also I use Toast of react hot toast for style alert. It handles UI interactions and makes API calls to interact with the backend.
     #Backend: The content is stored in Supabase (a hosted PostgreSQL database) for easy integration with authentication and data management.
     #User Authentication: Managed via Supabase, where users authenticate and are linked to their posts.
 
@@ -41,7 +41,7 @@ Follow these steps to run the application locally:
 1. Clone the Repository:
 
     #Run the following command to clone the project:
-        git clone <your-repository-url>
+        git clone https://github.com/markfrancisco001/my-nextjs-exerice.git
     
 2. Install Dependencies:
 
@@ -53,7 +53,7 @@ Follow these steps to run the application locally:
 
 3. Configure Supabase:
 
-    #Create a .env.local file at the root of the project and add your Supabase credentials:
+    #Create a .env.local file at the root of the project. Please ask me for Credentials:
     NEXT_PUBLIC_SUPABASE_URL=<your-supabase-url>
     NEXT_PUBLIC_SUPABASE_ANON_KEY=<your-supabase-anon-key>
 
