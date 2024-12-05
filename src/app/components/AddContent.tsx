@@ -69,7 +69,7 @@ const addPost = async (content: string) => {
           <textarea
             id="postContent"
             name="postContent"
-            className="w-full border-2 rounded-md px-4 py-2 leading-5 transition duration-150 ease-in-out sm:text-sm sm:leading-5 resize-none focus:outline-none focus:border-blue-500"
+            className="w-full border-2 rounded-md px-4 py-2 leading-5 transition duration-150 ease-in-out sm:text-sm sm:leading-5 text-gray-700 resize-none focus:outline-none focus:border-blue-500"
             placeholder="What's on your mind?"
             value={postContent}  // Bind the value to state
             onChange={(e) => setPostContent(e.target.value)}  // Update state on input change
